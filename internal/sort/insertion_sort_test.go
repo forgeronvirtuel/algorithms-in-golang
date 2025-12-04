@@ -1,6 +1,7 @@
 package sort
 
 import (
+	"math/rand"
 	"reflect"
 	"testing"
 )
@@ -26,5 +27,16 @@ func TestInsertionSort(t *testing.T) {
 		if !reflect.DeepEqual(arr, tt.expected) {
 			t.Errorf("InsertionSort(%v) = %v; want %v", tt.input, arr, tt.expected)
 		}
+	}
+}
+
+func BenchmarkInsertionSort(b *testing.B) {
+	size := 1000
+	for i := 0; i < b.N; i++ {
+		arr := make([]int, size)
+		for j := range arr {
+			arr[j] = rand.Intn(size)
+		}
+		InsertionSort(arr)
 	}
 }
