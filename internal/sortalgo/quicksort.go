@@ -1,4 +1,4 @@
-package sort
+package sortalgo
 
 func Quicksort(arr []int, low, high int) {
 	if low < high {

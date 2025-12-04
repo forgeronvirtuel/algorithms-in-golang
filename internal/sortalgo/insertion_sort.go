@@ -1,4 +1,4 @@
-package sort
+package sortalgo
 
 // Complexity: O(n^2) time, O(1) space
 func InsertionSort(arr []int) {

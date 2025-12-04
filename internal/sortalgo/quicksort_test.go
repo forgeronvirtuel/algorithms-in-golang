@@ -1,4 +1,6 @@
-package sort
+package sortalgo
+
+//go:generate go run ./cmd/generate_testdata/main.go
 
 import (
 	"math/rand"
@@ -6,7 +8,7 @@ import (
 	"testing"
 )
 
-func TestInsertionSort(t *testing.T) {
+func TestQuicksort(t *testing.T) {
 	tests := []struct {
 		input    []int
 		expected []int
@@ -23,20 +25,20 @@ func TestInsertionSort(t *testing.T) {
 	for _, tt := range tests {
 		arr := make([]int, len(tt.input))
 		copy(arr, tt.input)
-		InsertionSort(arr)
+		Quicksort(arr, 0, len(arr)-1)
 		if !reflect.DeepEqual(arr, tt.expected) {
-			t.Errorf("InsertionSort(%v) = %v; want %v", tt.input, arr, tt.expected)
+			t.Errorf("Quicksort(%v) = %v; want %v", tt.input, arr, tt.expected)
 		}
 	}
 }
 
-func BenchmarkInsertionSort(b *testing.B) {
+func BenchmarkQuicksort(b *testing.B) {
 	size := 1000
 	for i := 0; i < b.N; i++ {
 		arr := make([]int, size)
 		for j := range arr {
 			arr[j] = rand.Intn(size)
 		}
-		InsertionSort(arr)
+		Quicksort(arr, 0, len(arr)-1)
 	}
 }
