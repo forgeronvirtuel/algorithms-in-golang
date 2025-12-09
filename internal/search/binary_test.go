@@ -68,7 +68,7 @@ func BenchmarkBinarySearch(b *testing.B) {
 	target := arr[size/2]
 
 	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		BinarySearch(arr, target)
 	}
 }
@@ -82,7 +82,7 @@ func BenchmarkBinarySearchRecursive(b *testing.B) {
 	target := arr[size/2]
 
 	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		BinarySearchRecursive(arr, target, 0, len(arr)-1)
 	}
 }

@@ -41,7 +41,7 @@ func BenchmarkLinearSearch(b *testing.B) {
 	target := arr[size/2]
 
 	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		LinearSearch(arr, target)
 	}
 }

@@ -34,7 +34,7 @@ func TestQuicksort(t *testing.T) {
 
 func BenchmarkQuicksort(b *testing.B) {
 	size := 1000
-	for i := 0; i < b.N; i++ {
+	for b.Loop() {
 		arr := make([]int, size)
 		for j := range arr {
 			arr[j] = rand.Intn(size)
