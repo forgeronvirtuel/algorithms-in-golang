@@ -56,5 +56,5 @@ func (s *Stack[T]) Size() int {
 // IsEmpty checks if the stack is empty
 // Complexity: O(1)
 func (s *Stack[T]) IsEmpty() bool {
-	return s.size == 0
+	return s.head == nil
 }
