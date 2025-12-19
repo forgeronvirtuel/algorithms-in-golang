@@ -1,17 +1,17 @@
 package datastructures
 
-type nodeStack[T comparable] struct {
+type nodeStack[T any] struct {
 	value T
 	next  *nodeStack[T]
 }
 
-type Stack[T comparable] struct {
+type Stack[T any] struct {
 	head *nodeStack[T]
 	size int
 }
 
 // NewStack creates a new empty stack
-func NewStack[T comparable]() *Stack[T] {
+func NewStack[T any]() *Stack[T] {
 	return &Stack[T]{head: nil, size: 0}
 }
 
